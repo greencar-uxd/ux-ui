@@ -909,6 +909,13 @@
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{margin:0}
   .num{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+  .cg-2,.cg-3,.cg-4,.cg-5{display:grid;gap:12px;align-items:stretch;margin-top:12px}
+  .cg-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cg-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cg-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cg-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+  @media(max-width:760px){.cg-3,.cg-4,.cg-5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:440px){.cg-2,.cg-3,.cg-4,.cg-5{grid-template-columns:1fr}}
   .wrap{background:var(--surface-page);color:var(--text-secondary);font-family:var(--font-text);min-height:100vh;-webkit-font-smoothing:antialiased}
   .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent-solid);z-index:60;transition:width var(--dur-fast) linear}
   .layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:256px 1fr}
@@ -1028,7 +1035,7 @@
           </div>
 
           <!-- UX/UI 대표 작업 -->
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:22px">
+          <div class="cg-2" style="margin-top:22px">
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:12px;padding:18px 20px"><div style="font:700 12px var(--font-text);letter-spacing:.08em;color:var(--text-primary);margin-bottom:10px">대표적인 UX 작업</div><div style="display:flex;flex-direction:column;gap:7px">
               <div style="font:400 13.5px var(--font-display);color:var(--text-secondary)">인터랙션 디자인</div><div style="font:400 13.5px var(--font-display);color:var(--text-secondary)">와이어프레임 &amp; 프로토타입</div><div style="font:400 13.5px var(--font-display);color:var(--text-secondary)">정보구조 (IA)</div><div style="font:400 13.5px var(--font-display);color:var(--text-secondary)">사용자 리서치</div><div style="font:400 13.5px var(--font-display);color:var(--text-secondary)">시나리오</div></div></div>
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:12px;padding:18px 20px"><div style="font:700 12px var(--font-text);letter-spacing:.08em;color:var(--text-primary);margin-bottom:10px">대표적인 UI 작업</div><div style="display:flex;flex-direction:column;gap:7px">
@@ -1048,13 +1055,10 @@
           </div>
           <div style="background:var(--surface-sunken);border:1px solid var(--border);border-radius:14px;padding:24px 24px 22px">
             <div style="font:500 11px var(--font-text);letter-spacing:.18em;color:var(--text-tertiary);text-transform:uppercase;margin-bottom:16px">UX 디자이너의 관점</div>
-            <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:10px">
+            <div class="cg-4">
               <div style="flex:1;min-width:130px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 15px"><div style="font:700 11px var(--font-text);color:var(--text-primary)">USER</div><div style="font:500 13.5px var(--font-display);color:var(--text-primary);margin-top:4px">어떤 사람이</div></div>
-              <div style="display:flex;align-items:center;font:400 18px var(--font-text);color:var(--text-tertiary)">→</div>
               <div style="flex:1;min-width:130px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 15px"><div style="font:700 11px var(--font-text);color:var(--text-primary)">CONTEXT</div><div style="font:500 13.5px var(--font-display);color:var(--text-primary);margin-top:4px">어떤 맥락에서</div></div>
-              <div style="display:flex;align-items:center;font:400 18px var(--font-text);color:var(--text-tertiary)">→</div>
               <div style="flex:1;min-width:130px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 15px"><div style="font:700 11px var(--font-text);color:var(--text-primary)">PAIN · NEEDS</div><div style="font:500 13.5px var(--font-display);color:var(--text-primary);margin-top:4px">어떤 문제를 겪는데</div></div>
-              <div style="display:flex;align-items:center;font:400 18px var(--font-text);color:var(--text-primary)">→</div>
               <div style="flex:1;min-width:130px;background:var(--accent-solid);border-radius:10px;padding:13px 15px"><div style="font:700 11px var(--font-text);color:var(--on-accent)">SOLUTION</div><div style="font:600 13.5px var(--font-display);color:var(--on-accent);margin-top:4px">어떻게 해결할까?</div></div>
             </div>
             <p style="margin:18px 0 0;font:400 13px/1.7 var(--font-display);color:var(--text-tertiary)">단순 솔루션이 아니라 <b style="font-weight:600;color:var(--text-secondary)">근본적인 문제</b>에 대한 해결책을 설계한다. 문제의 본질을 이해해 핵심 문제를 명확히 정의하고, 개선 요소를 전략적으로 선정해 영향 범위를 판단한다.</p>
@@ -1074,7 +1078,7 @@
           </div>
 
           <div style="font:600 14px var(--font-display);color:var(--text-primary);margin:30px 0 13px">사용자를 이해하는 핵심 개념</div>
-          <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px">
+          <div class="cg-3">
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:11px;padding:15px 16px"><div style="font:700 10.5px var(--font-text);letter-spacing:.06em;color:var(--text-primary)">MOTIVE</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 4px">동기</div><div style="font:400 11.5px/1.55 var(--font-text);color:var(--text-tertiary)">행동을 일으키는 직접 요인</div></div>
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:11px;padding:15px 16px"><div style="font:700 10.5px var(--font-text);letter-spacing:.06em;color:var(--text-primary)">BEHAVIOR</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 4px">행동</div><div style="font:400 11.5px/1.55 var(--font-text);color:var(--text-tertiary)">경험의 구체적 발현</div></div>
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:11px;padding:15px 16px"><div style="font:700 10.5px var(--font-text);letter-spacing:.06em;color:var(--text-primary)">NEEDS</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 4px">니즈</div><div style="font:400 11.5px/1.55 var(--font-text);color:var(--text-tertiary)">무언가를 필요로 하는 내적 욕구</div></div>
@@ -1203,11 +1207,11 @@
 
           <div style="font:600 14px var(--font-display);color:var(--text-primary);margin-bottom:6px">덴마크 디자인 사다리</div>
           <p style="margin:0 0 16px;font:400 12.5px var(--font-text);color:var(--text-tertiary)">디자인이 스타일링에서 전략적 도구로 확대된다</p>
-          <div style="display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap">
-            <div style="flex:1;min-width:120px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:14px 14px;height:84px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font:700 13px var(--font-display);color:var(--text-tertiary)">1</div><div style="font:500 12.5px/1.35 var(--font-display);color:var(--text-secondary);margin-top:5px">Non-Design</div></div>
-            <div style="flex:1;min-width:120px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:14px 14px;height:112px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font:700 13px var(--font-display);color:var(--text-primary)">2</div><div style="font:500 12.5px/1.35 var(--font-display);color:var(--text-secondary);margin-top:5px">Design as Styling</div></div>
-            <div style="flex:1;min-width:120px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:14px 14px;height:140px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font:700 13px var(--font-display);color:var(--text-primary)">3</div><div style="font:500 12.5px/1.35 var(--font-display);color:var(--text-secondary);margin-top:5px">Design as Process</div></div>
-            <div style="flex:1;min-width:120px;background:var(--accent-solid);border:1px solid var(--accent);border-radius:10px 10px 0 0;padding:14px 14px;height:168px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font:700 13px var(--font-display);color:var(--on-accent)">4</div><div style="font:600 12.5px/1.35 var(--font-display);color:var(--on-accent);margin-top:5px">Design as Strategy</div></div>
+          <div class="cg-4">
+            <div style="flex:1;min-width:120px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:14px 14px;display:flex;flex-direction:column"><div style="font:700 13px var(--font-display);color:var(--text-tertiary)">1</div><div style="font:500 12.5px/1.35 var(--font-display);color:var(--text-secondary);margin-top:5px">Non-Design</div></div>
+            <div style="flex:1;min-width:120px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:14px 14px;display:flex;flex-direction:column"><div style="font:700 13px var(--font-display);color:var(--text-primary)">2</div><div style="font:500 12.5px/1.35 var(--font-display);color:var(--text-secondary);margin-top:5px">Design as Styling</div></div>
+            <div style="flex:1;min-width:120px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:14px 14px;display:flex;flex-direction:column"><div style="font:700 13px var(--font-display);color:var(--text-primary)">3</div><div style="font:500 12.5px/1.35 var(--font-display);color:var(--text-secondary);margin-top:5px">Design as Process</div></div>
+            <div style="flex:1;min-width:120px;background:var(--accent-solid);border:1px solid var(--accent);border-radius:10px;padding:14px 14px;display:flex;flex-direction:column"><div style="font:700 13px var(--font-display);color:var(--on-accent)">4</div><div style="font:600 12.5px/1.35 var(--font-display);color:var(--on-accent);margin-top:5px">Design as Strategy</div></div>
           </div>
           <div style="height:1px;background:var(--border-strong);margin-bottom:22px"></div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
@@ -1238,7 +1242,7 @@
             <p style="margin:8px 0 0;font:400 12px/1.6 var(--font-text);color:var(--text-tertiary)"><b style="color:var(--text-secondary)">The Design Squiggle</b> (Damien Newman) — 혼란스럽게 시작한 생각이 컨셉을 거쳐 하나의 점으로 수렴한다.</p>
           </div>
 
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+          <div class="cg-2">
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:12px;padding:18px 20px"><div style="font:700 12px var(--font-text);letter-spacing:.05em;color:var(--text-primary)">DIVERGENT · 발산적 사고</div><div style="font:500 13.5px var(--font-display);color:var(--text-secondary);margin:8px 0 6px">우뇌적 · 직관적</div><div style="font:400 12.5px var(--font-text);color:var(--text-tertiary)">브레인스토밍 · 마인드맵 · 스케치</div></div>
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:12px;padding:18px 20px"><div style="font:700 12px var(--font-text);letter-spacing:.05em;color:var(--text-primary)">CONVERGENT · 수렴적 사고</div><div style="font:500 13.5px var(--font-display);color:var(--text-secondary);margin:8px 0 6px">좌뇌적 · 논리적</div><div style="font:400 12.5px var(--font-text);color:var(--text-tertiary)">KJ map · AEIOU · Interaction matrix</div></div>
           </div>
@@ -1279,15 +1283,11 @@
           <!-- Design Thinking flow -->
           <div style="margin-top:24px">
             <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:14px"><span style="font:600 16px var(--font-display);color:var(--text-primary)">② 디자인 씽킹</span><span style="font:400 12px var(--font-text);color:var(--text-tertiary)">2005 · 스탠퍼드 d.school</span></div>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <div class="cg-5">
               <div style="flex:1;min-width:104px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 12px;text-align:center"><div style="font:700 11px var(--font-text);color:var(--text-primary)">01</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:4px">공감하기</div></div>
-              <span style="color:var(--text-tertiary);font:400 15px var(--font-text)">→</span>
               <div style="flex:1;min-width:104px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 12px;text-align:center"><div style="font:700 11px var(--font-text);color:var(--text-primary)">02</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:4px">문제정의</div></div>
-              <span style="color:var(--text-tertiary);font:400 15px var(--font-text)">→</span>
               <div style="flex:1;min-width:104px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 12px;text-align:center"><div style="font:700 11px var(--font-text);color:var(--text-primary)">03</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:4px">아이데이션</div></div>
-              <span style="color:var(--text-tertiary);font:400 15px var(--font-text)">→</span>
               <div style="flex:1;min-width:104px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 12px;text-align:center"><div style="font:700 11px var(--font-text);color:var(--text-primary)">04</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:4px">프로토타입</div></div>
-              <span style="color:var(--text-tertiary);font:400 15px var(--font-text)">→</span>
               <div style="flex:1;min-width:104px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 12px;text-align:center"><div style="font:700 11px var(--font-text);color:var(--text-primary)">05</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:4px">테스트</div></div>
             </div>
             <p style="margin:13px 0 0;font:400 12px/1.65 var(--font-text);color:var(--text-tertiary)">IDEO는 발견·해석·발상·실험·개선의 5단계. 2016년 NN/g가 <b style="color:var(--text-tertiary)">Implement(실행)</b>, 2019년 d.school이 6번째 <b style="color:var(--text-tertiary)">ASSESS(평가)</b>를 추가했다.</p>
@@ -1363,14 +1363,11 @@
         <div style="margin-top:46px">
           <h3 style="margin:0 0 16px;font:600 24px/1.3 var(--font-display);letter-spacing:-.01em;color:var(--text-primary)">1) 리서치의 개념과 전제</h3>
           <p style="margin:0 0 18px;font:400 14.5px/1.78 var(--font-display);color:var(--text-secondary)">리서치는 UXD 프로세스의 <b style="font-weight:600;color:var(--text-primary)">첫 단계(Discover)</b>이자 <b style="font-weight:600;color:var(--text-primary)">발산적</b>이다. 섣불리 결론 내리지 말고 일정 시점까지 계속 모은다. 문제 정의·질문이 선행하며, 점점 구체적 질문으로 좁히는 퍼널을 따른다.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:22px">
-            <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;font:500 13px var(--font-display);color:var(--text-secondary)">대상자</div>
-            <span style="color:var(--text-tertiary)">→</span>
-            <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;font:500 13px var(--font-display);color:var(--text-secondary)">진행방식</div>
-            <span style="color:var(--text-tertiary)">→</span>
-            <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;font:500 13px var(--font-display);color:var(--text-secondary)">내용설계</div>
-            <span style="color:var(--text-tertiary)">→</span>
-            <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;font:500 13px var(--font-display);color:var(--text-secondary)">일정계획</div>
+          <div class="cg-4" style="margin-bottom:22px">
+            <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;font:500 13px var(--font-display);color:var(--text-secondary);text-align:center">대상자</div>
+            <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;font:500 13px var(--font-display);color:var(--text-secondary);text-align:center">진행방식</div>
+            <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;font:500 13px var(--font-display);color:var(--text-secondary);text-align:center">내용설계</div>
+            <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;font:500 13px var(--font-display);color:var(--text-secondary);text-align:center">일정계획</div>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:12px;padding:17px 19px"><div style="font:700 12px var(--font-text);color:var(--text-primary)">탐색적 리서치</div><div style="font:400 13px/1.65 var(--font-display);color:var(--text-secondary);margin-top:7px">"무엇이 불편한가?" — 정성·1차·개방적, 초기 이해</div></div>
@@ -1634,7 +1631,7 @@
         <div style="margin-top:54px">
           <h3 style="margin:0 0 8px;font:600 24px/1.3 var(--font-display);letter-spacing:-.01em;color:var(--text-primary)">4) 관찰의 진행 계획과 태도</h3>
           <p style="margin:0 0 20px;font:400 13.5px var(--font-text);color:var(--text-tertiary)">진행은 5단계로 이뤄지며, 의미 해석은 가능한 빨리 착수한다</p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin-bottom:24px">
+          <div class="cg-3" style="margin-bottom:24px">
             <div style="flex:1;min-width:130px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 14px"><div style="font:700 10px var(--font-text);color:var(--text-primary)">01 · AIM</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:5px">목표</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary);margin-top:3px">무엇을 알고자 하는가?</div></div>
             <div style="flex:1;min-width:130px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 14px"><div style="font:700 10px var(--font-text);color:var(--text-primary)">02 · WHO/WHERE</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:5px">대상·장소</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary);margin-top:3px">누구를, 언제, 어디서</div></div>
             <div style="flex:1;min-width:130px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 14px"><div style="font:700 10px var(--font-text);color:var(--text-primary)">03 · METHOD</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:5px">방법·도구</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary);margin-top:3px">어떤 도구를 쓸까</div></div>
@@ -1659,11 +1656,11 @@
         <div style="margin-top:46px">
           <h3 style="margin:0 0 16px;font:600 24px/1.3 var(--font-display);letter-spacing:-.01em;color:var(--text-primary)">1) 인사이트란 — 자료를 '정보'로</h3>
           <p style="margin:0 0 22px;font:400 14.5px/1.78 var(--font-display);color:var(--text-secondary)">더블 다이아몬드의 <b style="font-weight:600;color:var(--text-primary)">정의(Define) 단계</b>는 개별 자료를 의미 있는 정보로 엮어 '무엇을 디자인할 것인가'에 답하는 것. 분석은 곧 정보화이며, 자료가 격상되는 흐름이 <b style="font-weight:600;color:var(--text-primary)">DIKW</b>다.</p>
-          <div style="display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap">
-            <div style="flex:1;min-width:140px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:14px 15px;height:120px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font:700 11px var(--font-text);color:var(--text-tertiary)">DATA</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 3px">자료</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">객관적 사실 · "물이 반 있다"</div></div>
-            <div style="flex:1;min-width:140px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:14px 15px;height:152px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font:700 11px var(--font-text);color:var(--text-primary)">INFORMATION</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 3px">정보</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">표현·조직화된 자료</div></div>
-            <div style="flex:1;min-width:140px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:14px 15px;height:188px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font:700 11px var(--font-text);color:var(--text-primary)">KNOWLEDGE</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 3px">지식</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">해석이 들어간 것 · "반이나/반밖에"</div></div>
-            <div style="flex:1;min-width:140px;background:var(--accent-solid);border:1px solid var(--accent);border-radius:10px 10px 0 0;padding:14px 15px;height:224px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font:700 11px var(--font-text);color:var(--on-accent)">WISDOM</div><div style="font:600 14px var(--font-display);color:var(--on-accent);margin:5px 0 3px">지혜</div><div style="font:400 11px/1.5 var(--font-text);color:var(--on-accent)">적용 가능한 통찰</div></div>
+          <div class="cg-4">
+            <div style="flex:1;min-width:140px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:14px 15px;display:flex;flex-direction:column"><div style="font:700 11px var(--font-text);color:var(--text-tertiary)">DATA</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 3px">자료</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">객관적 사실 · "물이 반 있다"</div></div>
+            <div style="flex:1;min-width:140px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:14px 15px;display:flex;flex-direction:column"><div style="font:700 11px var(--font-text);color:var(--text-primary)">INFORMATION</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 3px">정보</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">표현·조직화된 자료</div></div>
+            <div style="flex:1;min-width:140px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:14px 15px;display:flex;flex-direction:column"><div style="font:700 11px var(--font-text);color:var(--text-primary)">KNOWLEDGE</div><div style="font:600 14px var(--font-display);color:var(--text-primary);margin:5px 0 3px">지식</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">해석이 들어간 것 · "반이나/반밖에"</div></div>
+            <div style="flex:1;min-width:140px;background:var(--accent-solid);border:1px solid var(--accent);border-radius:10px;padding:14px 15px;display:flex;flex-direction:column"><div style="font:700 11px var(--font-text);color:var(--on-accent)">WISDOM</div><div style="font:600 14px var(--font-display);color:var(--on-accent);margin:5px 0 3px">지혜</div><div style="font:400 11px/1.5 var(--font-text);color:var(--on-accent)">적용 가능한 통찰</div></div>
           </div>
           <p style="margin:14px 0 0;font:400 12.5px/1.6 var(--font-text);color:var(--text-tertiary)">핵심은 흩어진 자료를 연결·조직화하고 패턴을 찾는 것. 행위로는 연구 → 표현 → 해석 → 적용으로 이어진다.</p>
         </div>
@@ -1712,11 +1709,9 @@
           <!-- 어피니티 KJ 3단계 -->
           <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:18px">
             <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:16px"><span style="font:600 15px var(--font-display);color:var(--text-primary)">③ 어피니티 다이어그램</span><span style="font:400 12px var(--font-text);color:var(--text-tertiary)">KJ법 · 가와키타 지로 · 대표적 정성 분석</span></div>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <div class="cg-3">
               <div style="flex:1;min-width:150px;background:var(--surface-sunken);border:1px solid var(--border);border-radius:10px;padding:13px 15px"><div style="font:700 10px var(--font-text);color:var(--text-primary)">STEP 1</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:4px">노트 만들기</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary);margin-top:3px">생생한 문장, 발화자 표기</div></div>
-              <span style="color:var(--text-tertiary)">→</span>
               <div style="flex:1;min-width:150px;background:var(--surface-sunken);border:1px solid var(--border);border-radius:10px;padding:13px 15px"><div style="font:700 10px var(--font-text);color:var(--text-primary)">STEP 2</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:4px">그룹핑</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary);margin-top:3px">유사끼리 묶기(보통 축 X)</div></div>
-              <span style="color:var(--text-tertiary)">→</span>
               <div style="flex:1;min-width:150px;background:var(--surface-sunken);border:1px solid var(--border);border-radius:10px;padding:13px 15px"><div style="font:700 10px var(--font-text);color:var(--text-primary)">STEP 3</div><div style="font:500 13px var(--font-display);color:var(--text-secondary);margin-top:4px">의미 추출</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary);margin-top:3px">우선순위·인사이트</div></div>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:14px">
@@ -1799,15 +1794,11 @@
             <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:11px;padding:15px 17px"><div style="font:600 13.5px var(--font-display);color:var(--text-primary)">비교 평가</div><div style="font:400 11.5px/1.55 var(--font-text);color:var(--text-tertiary);margin-top:5px">대안 간 비교</div></div>
           </div>
           <div style="font:600 14px var(--font-display);color:var(--text-primary);margin-bottom:14px">프로세스 5단계</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:22px">
+          <div class="cg-5" style="margin-bottom:22px">
             <div style="flex:1;min-width:128px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 13px"><div style="font:700 10px var(--font-text);color:var(--text-tertiary)">01</div><div style="font:500 12.5px var(--font-display);color:var(--text-secondary);margin-top:4px">평가 계획</div></div>
-            <span style="color:var(--text-tertiary)">→</span>
             <div style="flex:1;min-width:128px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 13px"><div style="font:700 10px var(--font-text);color:var(--text-tertiary)">02</div><div style="font:500 12.5px var(--font-display);color:var(--text-secondary);margin-top:4px">사전 평가 (Pilot)</div></div>
-            <span style="color:var(--text-tertiary)">→</span>
             <div style="flex:1;min-width:128px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 13px"><div style="font:700 10px var(--font-text);color:var(--text-tertiary)">03</div><div style="font:500 12.5px var(--font-display);color:var(--text-secondary);margin-top:4px">평가 진행</div></div>
-            <span style="color:var(--text-tertiary)">→</span>
             <div style="flex:1;min-width:128px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 13px"><div style="font:700 10px var(--font-text);color:var(--text-tertiary)">04</div><div style="font:500 12.5px var(--font-display);color:var(--text-secondary);margin-top:4px">결과 분석</div></div>
-            <span style="color:var(--text-tertiary)">→</span>
             <div style="flex:1;min-width:128px;background:var(--surface-card);border:1px solid var(--border);border-radius:10px;padding:13px 13px"><div style="font:700 10px var(--font-text);color:var(--text-tertiary)">05</div><div style="font:500 12.5px var(--font-display);color:var(--text-secondary);margin-top:4px">평가 보고서</div></div>
           </div>
           <div style="background:var(--surface-sunken);border-left:3px solid var(--text-tertiary);border-radius:0 12px 12px 0;padding:16px 20px">
