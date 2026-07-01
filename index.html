@@ -939,7 +939,7 @@
     .brand{flex-direction:row;align-items:baseline;gap:8px}
     .brand .ds-kicker{display:none}
     .brand-ttl{font-size:16px}
-    .menu-btn{display:inline-flex;align-items:center;gap:7px;cursor:pointer;border:1px solid var(--border-strong);background:var(--surface-card);color:var(--text-secondary);border-radius:99px;padding:7px 13px;font:500 11.5px var(--font-text)}
+    .menu-btn{display:inline-flex;align-items:center;gap:7px;cursor:pointer;border:1px solid var(--border-strong);background:var(--surface-card);color:var(--text-secondary);border-radius:99px;min-height:44px;padding:7px 16px;font:500 12px var(--font-text)}
     .toc-eyebrow{display:none}
     .toc-list{display:none;margin-top:14px}
     .sidebar.open .toc-list{display:block}
@@ -949,6 +949,9 @@
     .main{padding:0 20px 80px}
     .hero{padding:40px 0 34px}
     .sec{padding:44px 0 4px}
+    .toc-link{padding:13px 11px}
+    .theme-btn{min-height:44px}
+    .proc-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
   }
 
 </style>
@@ -961,11 +964,11 @@
     <aside class="sidebar">
       <div class="side-head">
         <div class="side-actions">
-          <button class="menu-btn">목차</button>
+          <button class="menu-btn" aria-expanded="false" aria-controls="tocList">목차</button>
         </div>
       </div>
       <div class="toc-eyebrow">목차</div>
-      <nav class="toc-list">
+      <nav class="toc-list" id="tocList">
         <a class="toc-link" data-target="part-1" href="#part-1"><span class="n">01</span><span class="dot"></span>UX·UI 기본 개념</a>
         <a class="toc-link" data-target="part-2" href="#part-2"><span class="n">02</span><span class="dot"></span>디자인 프로세스 &amp; 방법론</a>
         <a class="toc-link" data-target="part-3" href="#part-3"><span class="n">03</span><span class="dot"></span>UX 리서치</a>
@@ -1255,7 +1258,7 @@
               <div style="text-align:center;font:600 11.5px var(--font-text);color:var(--text-primary);padding:7px;background:var(--p2-soft,var(--surface-sunken));border-radius:7px">올바른 문제 찾기</div>
               <div style="text-align:center;font:600 11.5px var(--font-text);color:var(--text-accent);padding:7px;background:var(--surface-sunken);border-radius:7px">문제를 올바르게 해결</div>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:9px">
+            <div class="proc-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:9px">
               <div style="background:var(--surface-sunken);border:1px solid var(--border);border-radius:9px;padding:12px 11px"><div style="font:600 13px var(--font-display);color:var(--text-primary)">Discover</div><div style="font:400 10px var(--font-text);color:var(--text-tertiary);margin:2px 0 7px">발견 · 발산</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">추측보다 이해. 리서치·인터뷰</div></div>
               <div style="background:var(--surface-sunken);border:1px solid var(--border);border-radius:9px;padding:12px 11px"><div style="font:600 13px var(--font-display);color:var(--text-primary)">Define</div><div style="font:400 10px var(--font-text);color:var(--text-tertiary);margin:2px 0 7px">정의 · 수렴</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">문제 정의. 어피니티·퍼소나·CJM</div></div>
               <div style="background:var(--surface-sunken);border:1px solid var(--border);border-radius:9px;padding:12px 11px"><div style="font:600 13px var(--font-display);color:var(--text-primary)">Develop</div><div style="font:400 10px var(--font-text);color:var(--text-tertiary);margin:2px 0 7px">개발 · 발산</div><div style="font:400 11px/1.5 var(--font-text);color:var(--text-tertiary)">아이디어 탐색·고도화. 반복 검토</div></div>
@@ -1284,7 +1287,7 @@
           <!-- Design Sprint -->
           <div style="margin-top:24px;background:var(--surface-sunken);border:1px solid var(--border);border-radius:14px;padding:20px 22px">
             <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:14px"><span style="font:600 15px var(--font-display);color:var(--text-primary)">③ 구글 디자인 스프린트</span><span style="font:400 12px var(--font-text);color:var(--text-tertiary)">5일 · 7명 팀 + 결정권자 1명</span></div>
-            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">
+            <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px">
               <div style="text-align:center"><div style="font:700 10px var(--font-text);color:var(--text-primary)">DAY 1</div><div style="font:500 12.5px var(--font-display);color:var(--text-secondary);margin-top:5px;padding:9px 4px;background:var(--surface-card);border:1px solid var(--border);border-radius:8px">이해</div></div>
               <div style="text-align:center"><div style="font:700 10px var(--font-text);color:var(--text-primary)">DAY 2</div><div style="font:500 12.5px var(--font-display);color:var(--text-secondary);margin-top:5px;padding:9px 4px;background:var(--surface-card);border:1px solid var(--border);border-radius:8px">발산</div></div>
               <div style="text-align:center"><div style="font:700 10px var(--font-text);color:var(--text-primary)">DAY 3</div><div style="font:500 12.5px var(--font-display);color:var(--text-secondary);margin-top:5px;padding:9px 4px;background:var(--surface-card);border:1px solid var(--border);border-radius:8px">결정</div></div>
@@ -1815,8 +1818,8 @@
   var tb=document.querySelector('.theme-btn');
   if(tb)tb.addEventListener('click',function(){var n=wrap.getAttribute('data-theme')==='dark'?'light':'dark';wrap.setAttribute('data-theme',n);try{localStorage.setItem('uxui-theme',n);}catch(e){}});
   var sb=document.querySelector('.sidebar'), mb=document.querySelector('.menu-btn');
-  if(mb&&sb)mb.addEventListener('click',function(){sb.classList.toggle('open');});
-  document.querySelectorAll('.toc-link').forEach(function(a){a.addEventListener('click',function(){if(sb)sb.classList.remove('open');});});
+  if(mb&&sb)mb.addEventListener('click',function(){var o=sb.classList.toggle('open');mb.setAttribute('aria-expanded',o?'true':'false');});
+  document.querySelectorAll('.toc-link').forEach(function(a){a.addEventListener('click',function(){if(sb){sb.classList.remove('open');if(mb)mb.setAttribute('aria-expanded','false');}});});
   var ids=['part-1','part-2','part-3','part-4','part-5','part-6','appendix'];
   var pb=document.getElementById('progressBar'), cur=null;
   function onScroll(){
